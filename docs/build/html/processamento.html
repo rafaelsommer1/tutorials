@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuroimagem &#8212; Workflows  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="emocempr Package" href="emocemp.html" />
+    <link rel="prev" title="Neuroimmunology and Neuroinflammation Group" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="neuroimagem">
+<h1>Neuroimagem<a class="headerlink" href="#neuroimagem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="softwares">
+<h2>Softwares<a class="headerlink" href="#softwares" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Os worflows mais importantes descritos nos documentos a seguir são baseados em funções de softwares externos que incluem principalmente:</div>
+</div>
+<ul class="simple">
+<li><p>FMRIB Software Library (FSL) - <a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation">https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation</a></p></li>
+<li><p>MRtrix3 - <a class="reference external" href="https://www.mrtrix.org/download/">https://www.mrtrix.org/download/</a></p></li>
+<li><p>Freesurfer - <a class="reference external" href="https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall">https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall</a></p></li>
+<li><p>R (fslr, oasis and myelinmap packages)</p></li>
+</ul>
+<p>Todos sendo disponibilizados atualmente apenas para Linux e Mac</p>
+<p>* Para configuração dos pacotes de R checar no tópico de R</p>
+<p>Para facilidadade de implementação, sugiro instalar os scripts desenvolvidos pelo grupo que podem ser encontrados em: <a class="reference external" href="https://github.com/rafaelsommer1/neuroimage">https://github.com/rafaelsommer1/neuroimage</a>. Para instalá-los basta:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/rafaelsommer1/neuroimage.git
+<span class="nb">cd</span> neuroimage
+sudo <span class="nb">echo</span> <span class="s2">&quot;export SCRIPTS_RCS=`pwd`&quot;</span> &gt;&gt; ~/.bashrc
+sudo <span class="nb">echo</span> <span class="s2">&quot;export PATH=</span><span class="nv">$PATH</span><span class="s2">:`pwd`/bin&quot;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+<p>Re-abra o terminal e teste:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lesionMap
+&gt;&gt; Usage: lesionMap &lt;t1&gt; &lt;t2&gt; &lt;flair&gt;
+&gt;&gt; Call this script from the top of the files folder
+</pre></div>
+</div>
+<p>Se houver este resultado, os scripts estão instalados, em caso de erro entrar em contato com <a class="reference external" href="mailto:rafaelcasommer&#37;&#52;&#48;gmail&#46;com">rafaelcasommer<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+</div>
+<div class="section" id="dicom-para-nifti">
+<h2>DICOM para Nifti<a class="headerlink" href="#dicom-para-nifti" title="Permalink to this headline">¶</a></h2>
+<p>Arquivos adquiridos na ressonância ficam disponibilizados em formato DICOM o que pode ser bastante util para armazenamento de informações de identificação, metadados, etc… Porém não são simples de analisar e não compartilhaveis, visto que possuem informações sigilosas dos pacientes. Portanto, grande parte dos softwares de neuroimagem trabalham com imagens de formato Nifti.</p>
+<p>A documentação do formato pode ser encontrada em: <a class="reference external" href="https://nifti.nimh.nih.gov/">https://nifti.nimh.nih.gov/</a></p>
+<p>É importante então convertermos nossas imagens de dicom para nifti. Eu costumo utilizar o programa do mrtrix <strong>mrconvert</strong> para tal. Geralmente basta:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mrconvert dicom_folder file.nii.gz
+</pre></div>
+</div>
+<p>Sendo nifti_file o nome do arquivo desejado</p>
+<p>Após, costumo sempre orientar as imagens conforme o FSL, visto que a conversão muitas vezes pode levar a alterações de orientação. Basta:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fslreorient2std file.nii.gz file.nii.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="processamento-de-imagens-anatomicas">
+<h2>Processamento de imagens anatômicas<a class="headerlink" href="#processamento-de-imagens-anatomicas" title="Permalink to this headline">¶</a></h2>
+<p>Este tópico se destina ao processamento de imagens anatomicas de pacientes com esclerose múltipla ou outras patologias desmielinizantes. Ao final do protocolo nosso objetivo é obter os seguintes dados:</p>
+<ul class="simple">
+<li><p>Mapa de lesões (probabilístico e binário)</p></li>
+<li><p>Mascaras de substância branca, substância cinzenta e LCR</p></li>
+<li><p>Volumetria normalizada de cérebro total, substância branca e substância cinzenta</p></li>
+<li><p>Volumetrias subcorticais normalizadas e absolutas</p></li>
+<li><p>Mapas corticais de volume, área e espessura com parcelações</p></li>
+</ul>
+<div class="section" id="mapa-de-lesao">
+<h3>Mapa de lesão<a class="headerlink" href="#mapa-de-lesao" title="Permalink to this headline">¶</a></h3>
+<p>Inicialmente, costumo utilizar um script em R que realiza os seguintes procedimentos:</p>
+<ol class="arabic simple">
+<li><p>Extração de calota craniana</p></li>
+<li><p>Normalização de sinal</p></li>
+<li><p>Cálculo de mapas lesionais</p></li>
+</ol>
+<p>Para chamar este script, necessitamos de pelo menos:</p>
+<ul class="simple">
+<li><p>Um T1 volumétrico</p></li>
+<li><p>Um Flair volumétrico</p></li>
+<li><p>Um T2</p></li>
+</ul>
+<p>De dentro de uma pasta com os arquivos basta chamar:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lesionMap t1.nii.gz t2.nii.gz flair.nii.gz
+</pre></div>
+</div>
+<p>O processamento do script segue:</p>
+<img alt="_images/lesion_seg.png" src="_images/lesion_seg.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Workflows</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Neuroimagem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#softwares">Softwares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dicom-para-nifti">DICOM para Nifti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processamento-de-imagens-anatomicas">Processamento de imagens anatômicas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mapa-de-lesao">Mapa de lesão</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="emocemp.html">emocempr Package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="r.html">Aspectos básicos de R</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Neuroimmunology and Neuroinflammation Group</a></li>
+      <li>Next: <a href="emocemp.html" title="next chapter">emocempr Package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Rafael Canani Sommer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/processamento.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
