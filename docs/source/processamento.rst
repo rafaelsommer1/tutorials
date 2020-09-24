@@ -86,6 +86,13 @@ De dentro de uma pasta com os arquivos basta chamar:
 
     lesionMap t1.nii.gz t2.nii.gz flair.nii.gz
 
-O processamento do script segue:
+O processamento do script segue o seguinte algoritmo:
 
 .. image:: imgs/lesion_seg.png
+
+É importante a segmentação das lesões serem o primeiro passo, 
+pois já realizamos o pré-processamento do T1 e o mapa de lesões será utilizado em análises posteriores, como volumetrias
+
+O script de R que é chamado pelo comando **lesionMap** pode ser
+visualizado em https://github.com/rafaelsommer1/neuroimage/blob/master/R/lesionMap.R,
+caso seu mapa não fique adequado, é possível customizar os parâmetros do script
