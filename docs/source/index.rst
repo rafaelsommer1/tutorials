@@ -13,8 +13,10 @@ Neuroimagem
 
 
 .. toctree::
+   :caption: Neuroimagem
    :maxdepth: 4
    
+   iniciando
    processamento
    
 
