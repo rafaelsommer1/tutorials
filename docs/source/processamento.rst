@@ -65,3 +65,111 @@ O comando é simples
       -lm binmask.nii.gz
 
 Os arquivos resultantes se encontrarão em uma pasta *t1_sienax* 
+a pasta resultante terá os seguintes arquivos:
+
+- report.html = arquivo com os resultados
+- report.sienax = arquivo com os resultados em texto
+- t12std.mat = matrix utilizada para normalização do cérebro
+
+Ao abrir o arquivo *report.html* um relatório deve ser aberto no seu browser
+contendo imagens para correção de qualidade da extração cerebral, registro e segmentação
+e os resultados volumétricos em mm3 e o valor de escalonamento que podera ser utilizado
+no FIRST a seguir
+
+Exemplos de imagens contidas em report.html
+
+.. image:: imgs/sienax1.png
+
+.. image:: imgs/sienax2.png
+
+Exemplo de report.sienax
+
+.. code:: md
+    
+
+    SIENA - Structural Image Evaluation, using Normalisation, of Atrophy
+    part of FSL www.fmrib.ox.ac.uk/fsl
+    running cross-sectional atrophy measurement: sienax version 2.6
+    sienax 
+
+    ----------  extract brain  --------------------------------------------
+
+    ----------  register to standard space using brain and skull  --------
+    (do not worry about histogram warnings)
+    VSCALING 1.5979280678
+
+    ----------  mask with std mask  ---------------------------------------
+
+    ----------  segment tissue into types  --------------------------------
+
+    ----------  convert brain volume into normalised volume  --------------
+
+    tissue             volume    unnormalised-volume
+    GREY               859547.67 537913.87
+    WHITE              779114.57 487578.00
+    BRAIN              1638662.24 1025491.87
+
+Após obter os valores de volumetria dos tecidos cerebrais de forma geral,
+realizaremos a segmentação das estruturas subcorticais desses pacientes com FIRST
+no pacote criado pelo nosso grupo, podemos utilizar um script que padroniza a análise:
+
+
+
+.. [FIRST] Patenaude, B., Smith, S.M., Kennedy, D., and Jenkinson M. A Bayesian Model of Shape and Appearance for Subcortical Brain NeuroImage, 56(3):907-922, 2011.
+
+.. code:: bash
+    
+    $ mkdir first_results
+    $ run_first_all -i t1.nii.gz -o first_results/results
+    $ cd first_results
+    $ firstSeg results_all_fast_firstseg
+
+Por fins de reprodutibilidade sugiro sempre realizar o chamado desta forma.
+esse bloco de código faz o seguinte
+
+1. Cria uma pasta para armazenar os resultados
+2. Chama FIRST para realizar a segmentação no arquivo de T1
+3. Troca para o diretório dos resultados
+4. Chama o script personalizado para gerar um arquivo com os resultados volumétricos
+
+O resultado é uma pasta com as imagens segmentadas, e um arquivo de texto
+*firstSeg.txt* que contém algo nesse sentido:
+
+.. code:: text
+
+    27139 5964.219717 	Left-Thalamus-Proper
+    14744 3240.224603 	Left-Caudate
+    19081 4193.348186 	Left-Putamen
+    6018 1322.549624 	Left-Pallidum
+    58330 12818.929808 	Brain-Stem
+    11958 2627.957529 	Left-Hippocampus
+    4332 952.024755 	Left-Amygdala
+    1856 407.885029 	Left-Accumbens-area
+    24642 5415.464912 	Right-Thalamus-Proper
+    9711 2134.144135 	Right-Caudate
+    20585 4523.875709 	Right-Putamen
+    6652 1461.881040 	Right-Pallidum
+    13055 2869.040436 	Right-Hippocampus
+    4068 894.006625 	Right-Amygdala
+    2426 533.151444 	Right-Accumbens-area
+
+Aqui a primeira coluna se refere ao número de voxels do ROI, a segunda ao volume
+em mm3 e a terceira a estrutura do ROI
+
+Estes resultados, porém, se referem aos volumes não-normalizados. Para normalizá-los 
+basta multiplicar o volume pelo **VSCALLING** obtido no SIENAX  
+
+Sempre fica recomendado, também, checar a qualidade da segmentação visualizando as imagens
+Neste exemplo, podemos fazer isso com o seguinte comando:
+
+.. code:: bash
+    
+    $ cd ..
+    $ fsleyes t1.nii.gz first_results/results_all_fast_firstseg.nii.gz -cm subcortical 
+
+Esse comando abrirá o visualizador com algo parecido com isso:
+
+.. image:: imgs/first.png
+
+Freesurfer
+^^^^^^^^^^

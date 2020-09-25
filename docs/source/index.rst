@@ -23,12 +23,6 @@ Neuroimmunology and Neuroinflammation Group
    emocemp
 
 
-.. toctree::
-   :caption: R Básico
-   :maxdepth: 3
-   
-   r
-
 
 Indices and tables
 ==================
