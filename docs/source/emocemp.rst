@@ -27,7 +27,7 @@ As funções do pacote trabalham basicamente com o output cru do banco de dados 
 
 É necessário realizar o download do .csv em sua forma númerica, da visita de interesse
 
-.. image:: https://camo.githubusercontent.com/93f01d9f4bb2e01229e8fa4d263e848d1e098b18/68747470733a2f2f692e696d6775722e636f6d2f475148426e4e372e706e67
+.. image:: imgs/qualtrics_csv.png
 
 
 Funções do Package
