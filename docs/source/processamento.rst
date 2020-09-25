@@ -4,7 +4,7 @@ Processamento de imagens anatômicas
 Objetivos
 ^^^^^^^^^
 
-Este tópico se destina ao processamento de imagens anatomicas de pacientes com esclerose múltipla ou outras patologias desmielinizantes. Ao final do protocolo nosso objetivo é obter os seguintes dados:
+Este tópico se destina ao processamento de imagens anatômicas de pacientes com esclerose múltipla ou outras patologias desmielinizantes. Ao final do protocolo nosso objetivo é obter os seguintes dados:
 
 - Mapa de lesões (probabilístico e binário)
 - Mascaras de substância branca, substância cinzenta e LCR
@@ -12,8 +12,8 @@ Este tópico se destina ao processamento de imagens anatomicas de pacientes com 
 - Volumetrias subcorticais normalizadas e absolutas
 - Mapas corticais de volume, área e espessura com parcelações
 
-Mapa de lesão
-^^^^^^^^^^^^^
+Mapa de lesões
+^^^^^^^^^^^^^^
 Inicialmente, costumo utilizar um script em R que realiza os seguintes procedimentos:
 
 1. Extração de calota craniana
@@ -22,11 +22,11 @@ Inicialmente, costumo utilizar um script em R que realiza os seguintes procedime
 
 Para chamar este script, necessitamos de pelo menos:
 
-- Um T1 volumétrico
-- Um Flair volumétrico
-- Um T2
+- Um T1 volumétrico (t1.nii.gz)
+- Um Flair volumétrico (flair.nii.gz)
+- Um T2 (t2.nii.gz)
 
-De dentro de uma pasta com os arquivos basta chamar:
+De dentro de uma pasta com os 3 arquivos chame:
 
 .. code-block:: bash
 
@@ -36,8 +36,9 @@ O processamento do script segue o seguinte algoritmo:
 
 .. image:: imgs/lesion_seg.png
 
-É importante a segmentação das lesões serem o primeiro passo, 
-pois já realizamos o pré-processamento do T1 e o mapa de lesões será utilizado em análises posteriores, como volumetrias
+É importante que a segmentação das lesões seja o primeiro passo do nosso fluxo, 
+porque além de já realizar algumas funções com nosso T1, 
+o mapa de lesões será utilizado em funções posteriores, como as volumetrias
 
 O script de R que é chamado pelo comando **lesionMap** pode ser
 visualizado em https://github.com/rafaelsommer1/neuroimage/blob/master/R/lesionMap.R,
@@ -47,8 +48,8 @@ Volumetrias com SIENAX e FIRST
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Para cálculo de volume de substância branca e cinzenta costumo utilizar o SIENAX, visto que o mesmo
-nos proporciona tanto os resultados normalizados quanto os valores absolutos, e se trata de um algoritmo relativamente
-rápido e acurado de segmentação.
+nos proporciona tanto os resultados normalizados quanto os valores absolutos,
+e se trata de um algoritmo relativamente rápido e acurado de segmentação.
 
 .. [SIENAX] S.M. Smith, Y. Zhang, M. Jenkinson, J. Chen, P.M. Matthews, A. Federico, and N. De Stefano. Accurate, robust and automated longitudinal and cross-sectional brain change analysis. NeuroImage, 17(1):479-489, 2002. 
    
