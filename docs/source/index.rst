@@ -6,11 +6,6 @@
 Neuroimmunology and Neuroinflammation Group
 ===========================================
 
-Contents:
-
-Neuroimagem
-^^^^^^^^^^^
-
 
 .. toctree::
    :caption: Neuroimagem
@@ -21,16 +16,15 @@ Neuroimagem
    
 
 
-EMOCEMP
-===============
 .. toctree::
+   :caption: Emocemp
    :maxdepth: 3
    
    emocemp
 
-R básico
-===============
+
 .. toctree::
+   :caption: R Básico
    :maxdepth: 3
    
    r

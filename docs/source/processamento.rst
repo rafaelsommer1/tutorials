@@ -42,3 +42,26 @@ pois já realizamos o pré-processamento do T1 e o mapa de lesões será utiliza
 O script de R que é chamado pelo comando **lesionMap** pode ser
 visualizado em https://github.com/rafaelsommer1/neuroimage/blob/master/R/lesionMap.R,
 caso seu mapa não fique adequado, é possível customizar os parâmetros do script
+
+Volumetrias com SIENAX e FIRST
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para cálculo de volume de substância branca e cinzenta costumo utilizar o SIENAX, visto que o mesmo
+nos proporciona tanto os resultados normalizados quanto os valores absolutos, e se trata de um algoritmo relativamente
+rápido e acurado de segmentação.
+
+.. [SIENAX] S.M. Smith, Y. Zhang, M. Jenkinson, J. Chen, P.M. Matthews, A. Federico, and N. De Stefano. Accurate, robust and automated longitudinal and cross-sectional brain change analysis. NeuroImage, 17(1):479-489, 2002. 
+   
+
+Para o SIENAX precisaremos do nosso T1 volumétrico e um mapa binário de lesão que é utilizado para 
+preencher a substância branca evitando a subestimação dos volumes.
+
+O comando é simples
+
+.. code:: bash
+    
+    sienax t1.nii.gz \
+      -B "-f 0.25 -B" \
+      -lm binmask.nii.gz
+
+Os arquivos resultantes se encontrarão em uma pasta *t1_sienax* 

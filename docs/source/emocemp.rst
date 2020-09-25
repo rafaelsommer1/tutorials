@@ -1,4 +1,4 @@
-EMOCEMP
+Package emocempr
 ================
 
 Instalação do emocempr Package

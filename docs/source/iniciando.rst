@@ -30,8 +30,8 @@ Re-abra o terminal e teste:
 .. code-block:: bash
 
   $ lesionMap
-  >> Usage: lesionMap <t1> <t2> <flair>
-  >> Call this script from the top of the files folder
+  Usage: lesionMap <t1> <t2> <flair>
+  Call this script from the top of the files folder
 
 Se houver este resultado, os scripts estão instalados, em caso de erro entrar em contato com rafaelcasommer@gmail.com
 
@@ -50,7 +50,7 @@ A documentação do formato pode ser encontrada em: https://nifti.nimh.nih.gov/
 
 Sendo nifti_file o nome do arquivo desejado
 
-Após, costumo sempre orientar as imagens conforme o FSL, visto que a conversão muitas vezes pode levar a alterações de orientação. Basta:
+Após, é importante reorientar as imagens conforme o padrão do FSL, visto que a conversão muitas vezes pode levar a alterações de orientação. Basta:
 
 .. code-block:: bash
 
