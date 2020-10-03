@@ -172,5 +172,52 @@ Esse comando abrirá o visualizador com algo parecido com isso:
 
 .. image:: imgs/first.png
 
+
+SIENA para volumes longitudinais
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Uma opção interessante caso o interesse seja a evolução do volume cerebral 
+total ao longo do tempo é a utilização do SIENA. 
+Aqui utilizamos um algoritimo para estimar a mudança de volume cerebral entre dois
+pontos temporais, utilizando um registro meio-a-meio e estimando a média do deslocamento
+dos bordos cerebrais, portanto, sem diferenciação no tipo de tecido.
+Uma descrição detalhada pode ser encontrada em:
+
+.. [SIENA] S.M. Smith, N. De Stefano, M. Jenkinson, and P.M. Matthews. Normalised accurate measurement of longitudinal brain change. Journal of Computer Assisted Tomography, 25(3):466-475, May/June 2001. 
+
+A implementação é tão simples que pode ser realizada com uma linha:
+
+.. code::
+
+    siena t1_time1 t1_time2 -B "BET OPTIONS" -o output_folder
+
+Para imagens adquiridas no INSCER, tenho obtido bons resultados com -B "-f 0.25 -B"
+mas isto pode ser alterado conforme sua preferência e a manipulação de **bet** (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET/UserGuide)
+
+
 Freesurfer
 ^^^^^^^^^^
+
+Ainda sobre opções de processamento de imagens estruturais volumétrics, um dos algoritmos mais completos
+para estimação tanto de volumes quanto medidas de superfície é **recon-all -all** do Freesurfer
+A personalização de parâmetros aqui é ampla e pode ser revisada em: https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all
+Existe um script dentro dos comandos criados para o grupo que possui uma configuração padrão
+que tem produzido resultados agradáveis com imagens adquiridas na GE do INSCER.
+
+Para chamá-lo basta usar o seguinte comando, de dentro da pasta com seu arquivo anatômico
+
+.. code::
+
+   freesurferIndv t1.nii.gz
+
+Esse comando provavelmente é o que consome mais tempo de todos os descritos nesse seguinte
+e realiza as seguintes operações:
+
+1. Todos os passo de recon-all -all 
+2. Transformações com qcache
+3. Subsegmentação de hipocampo e tronco encefálico
+
+Já fornecendo todos os arquivos necessários para análise de grupos.
+Contudo, o algoritimo do Freesurfer, invariavelmente necessita de correções 
+manuais posteriores em alguns pontos específicos
+
