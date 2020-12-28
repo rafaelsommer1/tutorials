@@ -39,3 +39,30 @@ podemos apenas usar um arquivo .mif
 
 Correções de distorções
 """""""""""""""""""""""
+
+
+
+
+Tractografia global e conectoma
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Co-registro de DWI e T1
+"""""""""""""""""""""""
+
+
+Modelagem tecidual
+""""""""""""""""""
+
+
+
+Freesurfer recon
+""""""""""""""""
+
+Converter labels do Freesurfer
+""""""""""""""""""""""""""""""
+
+.. code:: 
+
+    labelconvert labelconvert $FREESURFER_HOME/subjects/subject/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt \
+    /usr/local/anaconda3/share/mrtrix3/labelconvert/fs_default.txt subject_parcels.mif
+

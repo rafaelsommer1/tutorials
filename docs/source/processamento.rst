@@ -221,3 +221,23 @@ Já fornecendo todos os arquivos necessários para análise de grupos.
 Contudo, o algoritimo do Freesurfer, invariavelmente necessita de correções 
 manuais posteriores em alguns pontos específicos
 
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+Após o processamento, geralmente o usuário necessita realizar algumas correções manuais de qualidade em alguns passos,
+são eles:
+
+1. Skull-stripping
+
+Para acessar o wiki do freesurfer sugere:
+
+.. code::
+
+    freeview -v subj/mri/T1.mgz \
+    subj/mri/brainmask.mgz:visible=false \
+    -f subj/surf/lh.white:edgecolor=yellow \
+    subj/surf/lh.pial:edgecolor=red \
+    subj/surf/rh.white:edgecolor=yellow \
+    subj/surf/rh.pial:edgecolor=red    
+
+Em que subj é o código fornecido ao recon-all
