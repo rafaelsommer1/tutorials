@@ -36,7 +36,9 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Package emocempr" href="emocemp.html" />
+    <link rel="prev" title="Processamento de imagens por tensor de difusão" href="dti.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,10 +84,15 @@
             
             
               <p class="caption"><span class="caption-text">Neuroimagem</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="iniciando.html">Passos iniciais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="processamento.html">Processamento de imagens anatômicas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dti.html">Processamento de imagens por tensor de difusão</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mapas de razão de transferência de magnetização</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#co-registro-com-imagens-anatomicas">Co-registro com imagens anatômicas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculo-do-mtr">Cálculo do MTR</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Emocemp</span></p>
 <ul>
@@ -176,6 +183,8 @@ conforme</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fslmaths</span> <span class="n">MTOFF</span> <span class="o">-</span><span class="n">sub</span> <span class="n">MTON</span> <span class="o">-</span><span class="n">div</span> <span class="n">MTOFF</span> <span class="o">-</span><span class="n">mul</span> <span class="mi">100</span> <span class="n">MTR</span>
 </pre></div>
 </div>
+<p>Com um resultado semelhante a este:</p>
+<img alt="_images/MTR_colored.png" src="_images/MTR_colored.png" />
 </div>
 </div>
 
@@ -184,6 +193,15 @@ conforme</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="emocemp.html" class="btn btn-neutral float-right" title="Package emocempr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dti.html" class="btn btn-neutral float-left" title="Processamento de imagens por tensor de difusão" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

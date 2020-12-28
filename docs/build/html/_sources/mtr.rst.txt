@@ -30,5 +30,7 @@ Podemos fazer isso com o *fslmaths* ou qualquer outro programa com algo como:
 
     fslmaths MTOFF -sub MTON -div MTOFF -mul 100 MTR
 
+Com um resultado semelhante a este:
 
+.. image:: imgs/MTR_colored.png
 
