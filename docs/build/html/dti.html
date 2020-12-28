@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Processamento de imagens por tensor de difusão &mdash; Workflows  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Package emocempr" href="emocemp.html" />
+    <link rel="prev" title="Processamento de imagens anatômicas" href="processamento.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Workflows
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Neuroimagem</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="iniciando.html">Passos iniciais</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processamento.html">Processamento de imagens anatômicas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Processamento de imagens por tensor de difusão</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-processamento">Pré-Processamento</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#formatos-utilizados-em-difusao">Formatos utilizados em difusão</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correcoes-de-distorcoes">Correções de distorções</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tractografia-global-e-conectoma">Tractografia global e conectoma</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#co-registro-de-dwi-e-t1">Co-registro de DWI e T1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelagem-tecidual">Modelagem tecidual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freesurfer-recon">Freesurfer recon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converter-labels-do-freesurfer">Converter labels do Freesurfer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Emocemp</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="emocemp.html">Package emocempr</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Workflows</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Processamento de imagens por tensor de difusão</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/dti.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="processamento-de-imagens-por-tensor-de-difusao">
+<h1>Processamento de imagens por tensor de difusão<a class="headerlink" href="#processamento-de-imagens-por-tensor-de-difusao" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-processamento">
+<h2>Pré-Processamento<a class="headerlink" href="#pre-processamento" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="formatos-utilizados-em-difusao">
+<h3>Formatos utilizados em difusão<a class="headerlink" href="#formatos-utilizados-em-difusao" title="Permalink to this headline">¶</a></h3>
+<p>Aqui abusaremos das bibliotecas do FSL e MrTrix
+O primeiro ponto importante será o formato <strong>.mif</strong> que a biblioteca do MrTrix lança mão,
+permitindo armazenar as grades de difusão junto com as imagens e facilitando a manipulação destes arquivos
+Por exemplo,</p>
+<p>Ao transformarmos um DICOM de difusão em nifti, com:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mrconvert</span> <span class="n">dti_folder</span> <span class="n">dti</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>Obteremos:</p>
+<ol class="arabic simple">
+<li>Arquivo de imagem <strong>dti.nii.gz</strong></li>
+<li>Matrix de vetores dos gradientes <strong>file.bvec</strong></li>
+<li>Vetor de bvalues <strong>file.bval</strong></li>
+</ol>
+<p>Enquanto podemos apenas realizar:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mrconvert</span> <span class="n">dcm_folder</span> <span class="n">dti</span><span class="o">.</span><span class="n">mif</span>
+</pre></div>
+</div>
+<p>Obtendo apenas um arquivo <strong>dti.mif</strong> com todas estas informações internamente
+armazenadas</p>
+<p>Finalmente, saiba que ao trabalhar com FSL utilizaremos majoritariamente
+os arquivos niftis junto com as respectivas matrizes, e ao utilizarmos o MrTrix
+podemos apenas usar um arquivo .mif</p>
+</div>
+<div class="section" id="correcoes-de-distorcoes">
+<h3>Correções de distorções<a class="headerlink" href="#correcoes-de-distorcoes" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="tractografia-global-e-conectoma">
+<h2>Tractografia global e conectoma<a class="headerlink" href="#tractografia-global-e-conectoma" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="co-registro-de-dwi-e-t1">
+<h3>Co-registro de DWI e T1<a class="headerlink" href="#co-registro-de-dwi-e-t1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="modelagem-tecidual">
+<h3>Modelagem tecidual<a class="headerlink" href="#modelagem-tecidual" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="freesurfer-recon">
+<h3>Freesurfer recon<a class="headerlink" href="#freesurfer-recon" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="converter-labels-do-freesurfer">
+<h3>Converter labels do Freesurfer<a class="headerlink" href="#converter-labels-do-freesurfer" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>labelconvert labelconvert $FREESURFER_HOME/subjects/subject/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt \
+/usr/local/anaconda3/share/mrtrix3/labelconvert/fs_default.txt subject_parcels.mif
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="emocemp.html" class="btn btn-neutral float-right" title="Package emocempr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="processamento.html" class="btn btn-neutral float-left" title="Processamento de imagens anatômicas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Rafael Canani Sommer
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

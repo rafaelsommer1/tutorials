@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mapas de razão de transferência de magnetização &mdash; Workflows  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Workflows
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Neuroimagem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iniciando.html">Passos iniciais</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processamento.html">Processamento de imagens anatômicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dti.html">Processamento de imagens por tensor de difusão</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Emocemp</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="emocemp.html">Package emocempr</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Workflows</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Mapas de razão de transferência de magnetização</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/mtr.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mapas-de-razao-de-transferencia-de-magnetizacao">
+<h1>Mapas de razão de transferência de magnetização<a class="headerlink" href="#mapas-de-razao-de-transferencia-de-magnetizacao" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="co-registro-com-imagens-anatomicas">
+<h2>Co-registro com imagens anatômicas<a class="headerlink" href="#co-registro-com-imagens-anatomicas" title="Permalink to this headline">¶</a></h2>
+<p>Antes do cálculo da taxa de transferência, costuma-se registrar os
+volumes de MT com uma imagem anatômica volumétrica (em geral T1)</p>
+<p>Como nas outras análises, pode-se utilizar o flirt com 6 graus de liberdade, como:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flirt</span> <span class="o">-</span><span class="ow">in</span> <span class="n">MT</span> <span class="o">-</span><span class="n">ref</span> <span class="n">ANAT</span> <span class="o">-</span><span class="n">dof</span> <span class="mi">6</span> <span class="o">-</span><span class="n">o</span> <span class="n">MT_2_ANAT</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculo-do-mtr">
+<h2>Cálculo do MTR<a class="headerlink" href="#calculo-do-mtr" title="Permalink to this headline">¶</a></h2>
+<p>Depois, basta usar os dois volumes co-registrados para calcular a taxa
+conforme</p>
+<div class="math notranslate nohighlight">
+\[\frac{MT_{OFF} - MT_{ON}}{MT_{OFF}} * 100\]</div>
+<p>Podemos fazer isso com o <em>fslmaths</em> ou qualquer outro programa com algo como:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fslmaths</span> <span class="n">MTOFF</span> <span class="o">-</span><span class="n">sub</span> <span class="n">MTON</span> <span class="o">-</span><span class="n">div</span> <span class="n">MTOFF</span> <span class="o">-</span><span class="n">mul</span> <span class="mi">100</span> <span class="n">MTR</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Rafael Canani Sommer
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
