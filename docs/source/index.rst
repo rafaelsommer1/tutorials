@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Neuroimmunology and Neuroinflammation Group
-===========================================
+Grupo de Pesquisa em Epidemiologia, Neurologia e Imunologia (GENIM)
+===================================================================
 
 
 .. toctree::
