@@ -1,69 +1,34 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Processamento de imagens anatômicas &mdash; Workflows  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Processamento de imagens por tensor de difusão" href="dti.html" />
     <link rel="prev" title="Passos iniciais" href="iniciando.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
-          
-
-          
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Workflows
-          
-
-          
+            <a href="index.html" class="icon icon-home"> Workflows
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -71,18 +36,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Neuroimagem</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="iniciando.html">Passos iniciais</a></li>
@@ -96,101 +50,63 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dti.html">Processamento de imagens por tensor de difusão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mtr.html">Mapas de razão de transferência de magnetização</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Emocemp</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="emocemp.html">Package emocempr</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Workflows</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Processamento de imagens anatômicas</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/processamento.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="processamento-de-imagens-anatomicas">
-<h1>Processamento de imagens anatômicas<a class="headerlink" href="#processamento-de-imagens-anatomicas" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="objetivos">
-<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="processamento-de-imagens-anatomicas">
+<h1>Processamento de imagens anatômicas<a class="headerlink" href="#processamento-de-imagens-anatomicas" title="Permalink to this headline"></a></h1>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline"></a></h2>
 <p>Este tópico se destina ao processamento de imagens anatômicas de pacientes com esclerose múltipla ou outras patologias desmielinizantes. Ao final do protocolo nosso objetivo é obter os seguintes dados:</p>
 <ul class="simple">
-<li>Mapa de lesões (probabilístico e binário)</li>
-<li>Mascaras de substância branca, substância cinzenta e LCR</li>
-<li>Volumetria normalizada de cérebro total, substância branca e substância cinzenta</li>
-<li>Volumetrias subcorticais normalizadas e absolutas</li>
-<li>Mapas corticais de volume, área e espessura com parcelações</li>
+<li><p>Mapa de lesões (probabilístico e binário)</p></li>
+<li><p>Mascaras de substância branca, substância cinzenta e LCR</p></li>
+<li><p>Volumetria normalizada de cérebro total, substância branca e substância cinzenta</p></li>
+<li><p>Volumetrias subcorticais normalizadas e absolutas</p></li>
+<li><p>Mapas corticais de volume, área e espessura com parcelações</p></li>
 </ul>
-</div>
-<div class="section" id="mapa-de-lesoes">
-<h2>Mapa de lesões<a class="headerlink" href="#mapa-de-lesoes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mapa-de-lesoes">
+<h2>Mapa de lesões<a class="headerlink" href="#mapa-de-lesoes" title="Permalink to this headline"></a></h2>
 <p>Inicialmente, costumo utilizar um script em R que realiza os seguintes procedimentos:</p>
 <ol class="arabic simple">
-<li>Extração de calota craniana</li>
-<li>Normalização de sinal</li>
-<li>Cálculo de mapas lesionais</li>
+<li><p>Extração de calota craniana</p></li>
+<li><p>Normalização de sinal</p></li>
+<li><p>Cálculo de mapas lesionais</p></li>
 </ol>
 <p>Para chamar este script, necessitamos de pelo menos:</p>
 <ul class="simple">
-<li>Um T1 volumétrico (t1.nii.gz)</li>
-<li>Um Flair volumétrico (flair.nii.gz)</li>
-<li>Um T2 (t2.nii.gz)</li>
+<li><p>Um T1 volumétrico (t1.nii.gz)</p></li>
+<li><p>Um Flair volumétrico (flair.nii.gz)</p></li>
+<li><p>Um T2 (t2.nii.gz)</p></li>
 </ul>
 <p>De dentro de uma pasta com os 3 arquivos chame:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lesionMap t1.nii.gz t2.nii.gz flair.nii.gz
@@ -204,32 +120,31 @@ o mapa de lesões será utilizado em funções posteriores, como as volumetrias<
 <p>O script de R que é chamado pelo comando <strong>lesionMap</strong> pode ser
 visualizado em <a class="reference external" href="https://github.com/rafaelsommer1/neuroimage/blob/master/R/lesionMap.R">https://github.com/rafaelsommer1/neuroimage/blob/master/R/lesionMap.R</a>,
 caso seu mapa não fique adequado, é possível customizar os parâmetros do script</p>
-</div>
-<div class="section" id="volumetrias-com-sienax-e-first">
-<h2>Volumetrias com SIENAX e FIRST<a class="headerlink" href="#volumetrias-com-sienax-e-first" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="volumetrias-com-sienax-e-first">
+<h2>Volumetrias com SIENAX e FIRST<a class="headerlink" href="#volumetrias-com-sienax-e-first" title="Permalink to this headline"></a></h2>
 <p>Para cálculo de volume de substância branca e cinzenta costumo utilizar o SIENAX, visto que o mesmo
 nos proporciona tanto os resultados normalizados quanto os valores absolutos,
 e se trata de um algoritmo relativamente rápido e acurado de segmentação.</p>
-<table class="docutils citation" frame="void" id="sienax" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[SIENAX]</td><td>S.M. Smith, Y. Zhang, M. Jenkinson, J. Chen, P.M. Matthews, A. Federico, and N. De Stefano. Accurate, robust and automated longitudinal and cross-sectional brain change analysis. NeuroImage, 17(1):479-489, 2002.</td></tr>
-</tbody>
-</table>
+<dl class="citation">
+<dt class="label" id="sienax"><span class="brackets">SIENAX</span></dt>
+<dd><p>S.M. Smith, Y. Zhang, M. Jenkinson, J. Chen, P.M. Matthews, A. Federico, and N. De Stefano. Accurate, robust and automated longitudinal and cross-sectional brain change analysis. NeuroImage, 17(1):479-489, 2002.</p>
+</dd>
+</dl>
 <p>Para o SIENAX precisaremos do nosso T1 volumétrico e um mapa binário de lesão que é utilizado para
 preencher a substância branca evitando a subestimação dos volumes.</p>
 <p>O comando é simples</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sienax</span> <span class="n">t1</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span> \
-  <span class="o">-</span><span class="n">B</span> <span class="s2">&quot;-f 0.25 -B&quot;</span> \
-  <span class="o">-</span><span class="n">lm</span> <span class="n">binmask</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sienax t1.nii.gz <span class="se">\</span>
+  -B <span class="s2">&quot;-f 0.25 -B&quot;</span> <span class="se">\</span>
+  -lm binmask.nii.gz
 </pre></div>
 </div>
 <p>Os arquivos resultantes se encontrarão em uma pasta <em>t1_sienax</em>
 a pasta resultante terá os seguintes arquivos:</p>
 <ul class="simple">
-<li>report.html = arquivo com os resultados</li>
-<li>report.sienax = arquivo com os resultados em texto</li>
-<li>t12std.mat = matrix utilizada para normalização do cérebro</li>
+<li><p>report.html = arquivo com os resultados</p></li>
+<li><p>report.sienax = arquivo com os resultados em texto</p></li>
+<li><p>t12std.mat = matrix utilizada para normalização do cérebro</p></li>
 </ul>
 <p>Ao abrir o arquivo <em>report.html</em> um relatório deve ser aberto no seu browser
 contendo imagens para correção de qualidade da extração cerebral, registro e segmentação
@@ -239,69 +154,68 @@ no FIRST a seguir</p>
 <img alt="_images/sienax1.png" src="_images/sienax1.png" />
 <img alt="_images/sienax2.png" src="_images/sienax2.png" />
 <p>Exemplo de report.sienax</p>
-<div class="code md highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SIENA</span> <span class="o">-</span> <span class="n">Structural</span> <span class="n">Image</span> <span class="n">Evaluation</span><span class="p">,</span> <span class="n">using</span> <span class="n">Normalisation</span><span class="p">,</span> <span class="n">of</span> <span class="n">Atrophy</span>
-<span class="n">part</span> <span class="n">of</span> <span class="n">FSL</span> <span class="n">www</span><span class="o">.</span><span class="n">fmrib</span><span class="o">.</span><span class="n">ox</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="n">fsl</span>
-<span class="n">running</span> <span class="n">cross</span><span class="o">-</span><span class="n">sectional</span> <span class="n">atrophy</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">sienax</span> <span class="n">version</span> <span class="mf">2.6</span>
-<span class="n">sienax</span>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>SIENA - Structural Image Evaluation, using Normalisation, of Atrophy
+part of FSL www.fmrib.ox.ac.uk/fsl
+running cross-sectional atrophy measurement: sienax version 2.6
+sienax
 
-<span class="o">----------</span>  <span class="n">extract</span> <span class="n">brain</span>  <span class="o">--------------------------------------------</span>
+----------  extract brain  --------------------------------------------
 
-<span class="o">----------</span>  <span class="n">register</span> <span class="n">to</span> <span class="n">standard</span> <span class="n">space</span> <span class="n">using</span> <span class="n">brain</span> <span class="ow">and</span> <span class="n">skull</span>  <span class="o">--------</span>
-<span class="p">(</span><span class="n">do</span> <span class="ow">not</span> <span class="n">worry</span> <span class="n">about</span> <span class="n">histogram</span> <span class="n">warnings</span><span class="p">)</span>
-<span class="n">VSCALING</span> <span class="mf">1.5979280678</span>
+----------  register to standard space using brain and skull  --------
+(do not worry about histogram warnings)
+VSCALING 1.5979280678
 
-<span class="o">----------</span>  <span class="n">mask</span> <span class="k">with</span> <span class="n">std</span> <span class="n">mask</span>  <span class="o">---------------------------------------</span>
+----------  mask with std mask  ---------------------------------------
 
-<span class="o">----------</span>  <span class="n">segment</span> <span class="n">tissue</span> <span class="n">into</span> <span class="n">types</span>  <span class="o">--------------------------------</span>
+----------  segment tissue into types  --------------------------------
 
-<span class="o">----------</span>  <span class="n">convert</span> <span class="n">brain</span> <span class="n">volume</span> <span class="n">into</span> <span class="n">normalised</span> <span class="n">volume</span>  <span class="o">--------------</span>
+----------  convert brain volume into normalised volume  --------------
 
-<span class="n">tissue</span>             <span class="n">volume</span>    <span class="n">unnormalised</span><span class="o">-</span><span class="n">volume</span>
-<span class="n">GREY</span>               <span class="mf">859547.67</span> <span class="mf">537913.87</span>
-<span class="n">WHITE</span>              <span class="mf">779114.57</span> <span class="mf">487578.00</span>
-<span class="n">BRAIN</span>              <span class="mf">1638662.24</span> <span class="mf">1025491.87</span>
+tissue             volume    unnormalised-volume
+GREY               859547.67 537913.87
+WHITE              779114.57 487578.00
+BRAIN              1638662.24 1025491.87
 </pre></div>
 </div>
 <p>Após obter os valores de volumetria dos tecidos cerebrais de forma geral,
 realizaremos a segmentação das estruturas subcorticais desses pacientes com FIRST
 no pacote criado pelo nosso grupo, podemos utilizar um script que padroniza a análise:</p>
-<table class="docutils citation" frame="void" id="first" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[FIRST]</td><td>Patenaude, B., Smith, S.M., Kennedy, D., and Jenkinson M. A Bayesian Model of Shape and Appearance for Subcortical Brain NeuroImage, 56(3):907-922, 2011.</td></tr>
-</tbody>
-</table>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir first_results
+<dl class="citation">
+<dt class="label" id="first"><span class="brackets">FIRST</span></dt>
+<dd><p>Patenaude, B., Smith, S.M., Kennedy, D., and Jenkinson M. A Bayesian Model of Shape and Appearance for Subcortical Brain NeuroImage, 56(3):907-922, 2011.</p>
+</dd>
+</dl>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir first_results
 $ run_first_all -i t1.nii.gz -o first_results/results
-$ cd first_results
+$ <span class="nb">cd</span> first_results
 $ firstSeg results_all_fast_firstseg
 </pre></div>
 </div>
 <p>Por fins de reprodutibilidade sugiro sempre realizar o chamado desta forma.
 esse bloco de código faz o seguinte</p>
 <ol class="arabic simple">
-<li>Cria uma pasta para armazenar os resultados</li>
-<li>Chama FIRST para realizar a segmentação no arquivo de T1</li>
-<li>Troca para o diretório dos resultados</li>
-<li>Chama o script personalizado para gerar um arquivo com os resultados volumétricos</li>
+<li><p>Cria uma pasta para armazenar os resultados</p></li>
+<li><p>Chama FIRST para realizar a segmentação no arquivo de T1</p></li>
+<li><p>Troca para o diretório dos resultados</p></li>
+<li><p>Chama o script personalizado para gerar um arquivo com os resultados volumétricos</p></li>
 </ol>
 <p>O resultado é uma pasta com as imagens segmentadas, e um arquivo de texto
 <em>firstSeg.txt</em> que contém algo nesse sentido:</p>
-<div class="code text highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">27139</span> <span class="mf">5964.219717</span>   <span class="n">Left</span><span class="o">-</span><span class="n">Thalamus</span><span class="o">-</span><span class="n">Proper</span>
-<span class="mi">14744</span> <span class="mf">3240.224603</span>   <span class="n">Left</span><span class="o">-</span><span class="n">Caudate</span>
-<span class="mi">19081</span> <span class="mf">4193.348186</span>   <span class="n">Left</span><span class="o">-</span><span class="n">Putamen</span>
-<span class="mi">6018</span> <span class="mf">1322.549624</span>    <span class="n">Left</span><span class="o">-</span><span class="n">Pallidum</span>
-<span class="mi">58330</span> <span class="mf">12818.929808</span>  <span class="n">Brain</span><span class="o">-</span><span class="n">Stem</span>
-<span class="mi">11958</span> <span class="mf">2627.957529</span>   <span class="n">Left</span><span class="o">-</span><span class="n">Hippocampus</span>
-<span class="mi">4332</span> <span class="mf">952.024755</span>     <span class="n">Left</span><span class="o">-</span><span class="n">Amygdala</span>
-<span class="mi">1856</span> <span class="mf">407.885029</span>     <span class="n">Left</span><span class="o">-</span><span class="n">Accumbens</span><span class="o">-</span><span class="n">area</span>
-<span class="mi">24642</span> <span class="mf">5415.464912</span>   <span class="n">Right</span><span class="o">-</span><span class="n">Thalamus</span><span class="o">-</span><span class="n">Proper</span>
-<span class="mi">9711</span> <span class="mf">2134.144135</span>    <span class="n">Right</span><span class="o">-</span><span class="n">Caudate</span>
-<span class="mi">20585</span> <span class="mf">4523.875709</span>   <span class="n">Right</span><span class="o">-</span><span class="n">Putamen</span>
-<span class="mi">6652</span> <span class="mf">1461.881040</span>    <span class="n">Right</span><span class="o">-</span><span class="n">Pallidum</span>
-<span class="mi">13055</span> <span class="mf">2869.040436</span>   <span class="n">Right</span><span class="o">-</span><span class="n">Hippocampus</span>
-<span class="mi">4068</span> <span class="mf">894.006625</span>     <span class="n">Right</span><span class="o">-</span><span class="n">Amygdala</span>
-<span class="mi">2426</span> <span class="mf">533.151444</span>     <span class="n">Right</span><span class="o">-</span><span class="n">Accumbens</span><span class="o">-</span><span class="n">area</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>27139 5964.219717   Left-Thalamus-Proper
+14744 3240.224603   Left-Caudate
+19081 4193.348186   Left-Putamen
+6018 1322.549624    Left-Pallidum
+58330 12818.929808  Brain-Stem
+11958 2627.957529   Left-Hippocampus
+4332 952.024755     Left-Amygdala
+1856 407.885029     Left-Accumbens-area
+24642 5415.464912   Right-Thalamus-Proper
+9711 2134.144135    Right-Caudate
+20585 4523.875709   Right-Putamen
+6652 1461.881040    Right-Pallidum
+13055 2869.040436   Right-Hippocampus
+4068 894.006625     Right-Amygdala
+2426 533.151444     Right-Accumbens-area
 </pre></div>
 </div>
 <p>Aqui a primeira coluna se refere ao número de voxels do ROI, a segunda ao volume
@@ -310,65 +224,64 @@ em mm3 e a terceira a estrutura do ROI</p>
 basta multiplicar o volume pelo <strong>VSCALLING</strong> obtido no SIENAX</p>
 <p>Sempre fica recomendado, também, checar a qualidade da segmentação visualizando as imagens
 Neste exemplo, podemos fazer isso com o seguinte comando:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ..
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..
 $ fsleyes t1.nii.gz first_results/results_all_fast_firstseg.nii.gz -cm subcortical
 </pre></div>
 </div>
 <p>Esse comando abrirá o visualizador com algo parecido com isso:</p>
 <img alt="_images/first.png" src="_images/first.png" />
-</div>
-<div class="section" id="siena-para-volumes-longitudinais">
-<h2>SIENA para volumes longitudinais<a class="headerlink" href="#siena-para-volumes-longitudinais" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="siena-para-volumes-longitudinais">
+<h2>SIENA para volumes longitudinais<a class="headerlink" href="#siena-para-volumes-longitudinais" title="Permalink to this headline"></a></h2>
 <p>Uma opção interessante caso o interesse seja a evolução do volume cerebral
 total ao longo do tempo é a utilização do SIENA.
 Aqui utilizamos um algoritimo para estimar a mudança de volume cerebral entre dois
 pontos temporais, utilizando um registro meio-a-meio e estimando a média do deslocamento
 dos bordos cerebrais, portanto, sem diferenciação no tipo de tecido.
 Uma descrição detalhada pode ser encontrada em:</p>
-<table class="docutils citation" frame="void" id="siena" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[SIENA]</td><td>S.M. Smith, N. De Stefano, M. Jenkinson, and P.M. Matthews. Normalised accurate measurement of longitudinal brain change. Journal of Computer Assisted Tomography, 25(3):466-475, May/June 2001.</td></tr>
-</tbody>
-</table>
+<dl class="citation">
+<dt class="label" id="siena"><span class="brackets">SIENA</span></dt>
+<dd><p>S.M. Smith, N. De Stefano, M. Jenkinson, and P.M. Matthews. Normalised accurate measurement of longitudinal brain change. Journal of Computer Assisted Tomography, 25(3):466-475, May/June 2001.</p>
+</dd>
+</dl>
 <p>A implementação é tão simples que pode ser realizada com uma linha:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">siena</span> <span class="n">t1_time1</span> <span class="n">t1_time2</span> <span class="o">-</span><span class="n">B</span> <span class="s2">&quot;BET OPTIONS&quot;</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_folder</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">siena</span> <span class="n">t1_time1</span> <span class="n">t1_time2</span> <span class="o">-</span><span class="n">B</span> <span class="s2">&quot;BET OPTIONS&quot;</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_folder</span>
 </pre></div>
 </div>
 <p>Para imagens adquiridas no INSCER, tenho obtido bons resultados com -B “-f 0.25 -B”
 mas isto pode ser alterado conforme sua preferência e a manipulação de <strong>bet</strong> (<a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET/UserGuide">https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET/UserGuide</a>)</p>
-</div>
-<div class="section" id="freesurfer">
-<h2>Freesurfer<a class="headerlink" href="#freesurfer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="freesurfer">
+<h2>Freesurfer<a class="headerlink" href="#freesurfer" title="Permalink to this headline"></a></h2>
 <p>Ainda sobre opções de processamento de imagens estruturais volumétrics, um dos algoritmos mais completos
 para estimação tanto de volumes quanto medidas de superfície é <strong>recon-all -all</strong> do Freesurfer
 A personalização de parâmetros aqui é ampla e pode ser revisada em: <a class="reference external" href="https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all">https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all</a>
 Existe um script dentro dos comandos criados para o grupo que possui uma configuração padrão
 que tem produzido resultados agradáveis com imagens adquiridas na GE do INSCER.</p>
 <p>Para chamá-lo basta usar o seguinte comando, de dentro da pasta com seu arquivo anatômico</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freesurferIndv</span> <span class="n">t1</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freesurferIndv</span> <span class="n">t1</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
 <p>Esse comando provavelmente é o que consome mais tempo de todos os descritos nesse seguinte
 e realiza as seguintes operações:</p>
 <ol class="arabic simple">
-<li>Todos os passo de recon-all -all</li>
-<li>Transformações com qcache</li>
-<li>Subsegmentação de hipocampo e tronco encefálico</li>
+<li><p>Todos os passo de recon-all -all</p></li>
+<li><p>Transformações com qcache</p></li>
+<li><p>Subsegmentação de hipocampo e tronco encefálico</p></li>
 </ol>
 <p>Já fornecendo todos os arquivos necessários para análise de grupos.
 Contudo, o algoritimo do Freesurfer, invariavelmente necessita de correções
 manuais posteriores em alguns pontos específicos</p>
-</div>
-<div class="section" id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
 <p>Após o processamento, geralmente o usuário necessita realizar algumas correções manuais de qualidade em alguns passos,
 são eles:</p>
 <ol class="arabic simple">
-<li>Skull-stripping</li>
+<li><p>Skull-stripping</p></li>
 </ol>
 <p>Para acessar o wiki do freesurfer sugere:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freeview</span> <span class="o">-</span><span class="n">v</span> <span class="n">subj</span><span class="o">/</span><span class="n">mri</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">mgz</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freeview</span> <span class="o">-</span><span class="n">v</span> <span class="n">subj</span><span class="o">/</span><span class="n">mri</span><span class="o">/</span><span class="n">T1</span><span class="o">.</span><span class="n">mgz</span> \
 <span class="n">subj</span><span class="o">/</span><span class="n">mri</span><span class="o">/</span><span class="n">brainmask</span><span class="o">.</span><span class="n">mgz</span><span class="p">:</span><span class="n">visible</span><span class="o">=</span><span class="n">false</span> \
 <span class="o">-</span><span class="n">f</span> <span class="n">subj</span><span class="o">/</span><span class="n">surf</span><span class="o">/</span><span class="n">lh</span><span class="o">.</span><span class="n">white</span><span class="p">:</span><span class="n">edgecolor</span><span class="o">=</span><span class="n">yellow</span> \
 <span class="n">subj</span><span class="o">/</span><span class="n">surf</span><span class="o">/</span><span class="n">lh</span><span class="o">.</span><span class="n">pial</span><span class="p">:</span><span class="n">edgecolor</span><span class="o">=</span><span class="n">red</span> \
@@ -377,63 +290,38 @@ são eles:</p>
 </pre></div>
 </div>
 <p>Em que subj é o código fornecido ao recon-all</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="dti.html" class="btn btn-neutral float-right" title="Processamento de imagens por tensor de difusão" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="iniciando.html" class="btn btn-neutral float-left" title="Passos iniciais" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iniciando.html" class="btn btn-neutral float-left" title="Passos iniciais" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dti.html" class="btn btn-neutral float-right" title="Processamento de imagens por tensor de difusão" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2020, Rafael Canani Sommer
-
-    </p>
+    <p>&#169; Copyright 2020, Rafael Canani Sommer.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
