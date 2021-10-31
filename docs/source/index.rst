@@ -24,6 +24,11 @@ Grupo de Pesquisa em Epidemiologia, Neurologia e Imunologia (GENIM)
    
    emocemp
 
+.. toctree::
+   :caption: R
+   :maxdepth: 3
+
+   r
 
 
 Indices and tables
